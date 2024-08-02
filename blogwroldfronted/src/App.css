@@ -1,0 +1,1223 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+NG+Modern:wght@100..400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+DE+Grund:wght@100..400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+NZ:wght@100..400&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Faster+One&family=Shrikhand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Amatic+SC:wght@400;700&family=Black+Ops+One&family=Caveat:wght@400..700&family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Concert+One&family=Courgette&family=Dancing+Script:wght@400..700&family=Ga+Maamli&family=Great+Vibes&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Indie+Flower&family=Jacquard+12&family=Jaini&family=Kode+Mono:wght@400..700&family=Libre+Barcode+39&family=Lobster&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Margarine&family=Martel:wght@200;300;400;600;700;800;900&family=Merienda:wght@300..900&family=Noto+Sans+Bengali:wght@100..900&family=Orbitron:wght@400..900&family=Pacifico&family=Permanent+Marker&family=Playwrite+AU+TAS:wght@100..400&family=Playwrite+FR+Moderne:wght@100..400&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&family=Playwrite+IN:wght@100..400&family=Playwrite+IS:wght@100..400&family=Playwrite+NO:wght@100..400&family=Playwrite+RO:wght@100..400&family=Playwrite+TZ:wght@100..400&family=Rubik+Bubbles&family=Rubik+Glitch+Pop&family=Sacramento&family=Satisfy&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Tangerine:wght@400;700&family=Tiny5&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Yellowtail&family=Zeyada&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Allura&family=Architects+Daughter&family=Audiowide&family=Bangers&family=Cookie&family=Danfo&family=Honk&family=Jacquard+24+Charted&family=Jaini&family=Jersey+10&family=Jersey+25+Charted&family=Libre+Barcode+39&family=Monoton&family=Press+Start+2P&family=Rubik+Bubbles&family=Special+Elite&family=Spicy+Rice&family=Tangerine:wght@400;700&family=VT323&family=Zeyada&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Micro+5&display=swap');
+
+/* -------------- Main CSS of Body */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --aqua: rgba(14, 253, 253, 0.71);
+    --gry: grey;
+}
+
+body::-webkit-scrollbar {
+    background: transparent;
+    display: none;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+.df {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --------------------Background CSS----------------------------- */
+.main {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: fixed;
+}
+
+.submain {
+    position: absolute;
+    bottom: 0;
+    overflow: hidden;
+    margin-bottom: 10px;
+    padding-bottom: 15px;
+    width: 100vw;
+    height: 100vh;
+    transition: 1s;
+}
+
+.box {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: none;
+    animation: grow 5s linear infinite;
+    animation-delay: calc(var(--i)*0.5s);
+    opacity: 0;
+}
+
+.box1 {
+    background: -webkit-radial-gradient(center, ellipse, rgb(117, 171, 252) 0%, rgba(0, 0, 0, 0) 100%);
+    box-shadow: 0 0 50px rgba(117, 171, 252);
+}
+
+.box2 {
+    background: -webkit-radial-gradient(center, ellipse, rgb(112, 218, 235) 0%, rgba(0, 0, 0, 0) 100%);
+    box-shadow: 0 0 50px rgba(112, 218, 235);
+}
+
+.box3 {
+    background: -webkit-radial-gradient(center, ellipse, rgb(220, 134, 163) 0%, rgba(0, 0, 0, 0) 100%);
+    box-shadow: 0 0 50px rgba(220, 134, 163);
+}
+
+.box4 {
+    background: -webkit-radial-gradient(center, ellipse, rgb(116, 189, 151) 0%, rgba(0, 0, 0, 0) 100%);
+    box-shadow: 0 0 50px rgba(116, 189, 151);
+}
+
+.box5 {
+    background: -webkit-radial-gradient(center, ellipse, rgb(218, 178, 117) 0%, rgba(0, 0, 0, 0) 100%);
+    box-shadow: 0 0 50px rgba(218, 178, 117);
+}
+
+.box6 {
+    background: -webkit-radial-gradient(center, ellipse, rgb(152, 72, 255) 0%, rgba(0, 0, 0, 0) 100%);
+    box-shadow: 0 0 50px rgba(152, 72, 255);
+}
+
+/* --------------------- Animation of Background CSS --------------------- */
+@keyframes grow {
+    0% {
+        width: 0px;
+        height: 0px;
+        opacity: 0;
+    }
+
+    20% {
+        width: 50px;
+        height: 50px;
+        opacity: 0.2;
+    }
+
+    40% {
+        width: 100px;
+        height: 100px;
+        opacity: 0.5;
+    }
+
+    50% {
+        width: 150px;
+        height: 150px;
+    }
+
+    70% {
+        width: 200px;
+        height: 200px;
+    }
+
+    90% {
+        width: 250px;
+        height: 250px;
+        opacity: 0.6;
+    }
+
+    100% {
+        width: 250px;
+        height: 250px;
+        opacity: 0;
+    }
+}
+
+/* --------------------- Main Part of Every Page ------------------------- */
+.mainContainer {
+    width: 100vw;
+    position: absolute;
+}
+
+.btn:active {
+    scale: 0.7;
+}
+
+
+/* ------------------>>>>>> Home CSS <<<<<<----------------------- */
+.mainHead {
+    font-family: "Kalam", cursive;
+    font-weight: 300;
+    font-size: 30px;
+    text-shadow: 3px 0 0 grey;
+    gap: 1rem;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+.heading {
+    font-size: 6rem;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.char {
+    display: inline-block;
+}
+
+.top {
+    gap: 30px;
+}
+
+.subHeader {
+    gap: 30px;
+}
+
+.leftside {
+    width: 500px;
+    gap: 30px;
+}
+
+.rightside {
+    width: 500px;
+}
+
+.imgcls {
+    width: 500px;
+    filter: invert(1);
+    box-shadow: 10px 0 0 red;
+    border-radius: 50px;
+}
+
+.home {
+    box-shadow: 0 0 10px grey;
+}
+
+.myBtn {
+    height: 50px;
+}
+
+.btnMe {
+    width: 135px;
+    background-color: #0230945e;
+    cursor: pointer;
+    position: relative;
+    transition: 0.5s;
+    right: 0px;
+    font-size: 20px;
+    border-radius: 10px;
+    border-width: 1.5px;
+}
+
+.btnMe::after {
+    content: "→";
+    position: absolute;
+    top: 7px;
+    opacity: 0;
+    right: 0px;
+    transition: 0.5s;
+}
+
+.btnMe:hover {
+    box-shadow: 0 0 15px #1687f7;
+    border: 2px solid #02c8ff;
+    transition: 0.5s;
+    padding-right: 30px;
+    opacity: 1;
+    background-color: #023094d4;
+}
+
+.btnMe:hover:after {
+    opacity: 1;
+    right: 10px;
+}
+
+.home-page1 {
+    background: linear-gradient(to bottom, #add4e659, #17cfff85);
+    box-shadow: 1px 5px 0 rgb(6, 170, 235);
+}
+
+.blogBtn {
+    width: 200px;
+    background: orange;
+    color: black;
+}
+
+.blogBtn:hover {
+    box-shadow: 0 0 15px #f79f16d6;
+    background: rgb(184, 90, 2);
+}
+
+i {
+    font-size: 30px;
+    opacity: 0.5;
+    color: rgb(183, 181, 181);
+}
+
+/* .imgs0 {
+    width: 350px;
+    position: relative;
+    right: 400px;
+    opacity: 0.5;
+    transition: 1.5s;
+    animation: imgs1 6s linear infinite;
+}
+
+.imgs1 {
+    left: 400px;
+    animation: imgs2 6s linear infinite;
+}
+
+
+@keyframes imgs1 {
+    0% {
+        opacity: 0;
+        right: 400px;
+    }
+
+    20% {
+        opacity: 0.8;
+        right: 25px;
+    }
+
+    90% {
+        opacity: 0.8;
+        right: 25px;
+    }
+
+    100% {
+        opacity: 0;
+        right: 400px;
+    }
+}
+
+@keyframes imgs2 {
+    0% {
+        opacity: 0;
+        left: 400px;
+    }
+
+    20% {
+        opacity: 0.8;
+        left: 15px;
+    }
+
+    90% {
+        opacity: 0.8;
+        left: 15px;
+    }
+
+    100% {
+        opacity: 0;
+        left: 400px;
+    }
+} */
+
+.create {
+    display: inline-block;
+    position: relative;
+}
+
+.cwrd {
+    display: inline-block;
+}
+
+.create i {
+    display: inline-block;
+    opacity: 0;
+    position: absolute;
+}
+
+/* --------------------- Home Page 2----------------------------- */
+.home-page2 {
+    background: #a00056b8;
+}
+
+.top1 {
+    overflow: hidden;
+}
+
+.imgp {
+    position: relative;
+    right: 35px;
+}
+
+.mainContainer {
+    font-family: "Ubuntu", sans-serif;
+    overflow-x: hidden;
+}
+
+.title {
+    font-family: "Playwrite NZ", cursive;
+    font-optical-sizing: auto;
+}
+
+.top-head1 {
+    font-family: "Playwrite DE Grund", cursive;
+    font-optical-sizing: auto;
+    text-shadow: 3px 0px 0 grey;
+    font-size: 26px;
+}
+
+.top-head2 {
+    font-size: 24px;
+}
+
+.top2 {
+    gap: 30px;
+    overflow-x: hidden;
+}
+
+.top-head3 {
+    font-size: 20px;
+    font-family: "Kalam";
+}
+
+.text {
+    font-family: "Playwrite NG Modern", cursive;
+    font-optical-sizing: auto;
+    text-shadow: 2px 0 0 lightslategrey;
+}
+
+/* .blog-btn {
+    position: relative;
+} */
+
+/* .blog-btn svg{
+    position: absolute;
+    width: 70vw;
+} */
+
+.imgbox1 {
+    overflow: hidden;
+    width: 400px;
+    height: 300px;
+    gap: 10px;
+}
+
+.imgbox1 img {
+    width: 150px;
+    opacity: 0.5;
+}
+
+/* -------------------------- Home Page 3 ------------------------- */
+.top32 {
+    overflow-x: hidden;
+}
+
+
+/* -------------------------- Footer Part ------------------------- */
+.footer-part {
+    margin-top: 150px;
+    background: rgba(0, 0, 0, 0.658);
+}
+
+.email {
+    font-size: 17px;
+}
+
+.right-footer {
+    gap: 15px;
+    padding: 20px 0px;
+}
+
+.img-part img {
+    width: 300px;
+    position: relative;
+    bottom: 150px;
+    filter: drop-shadow(2px 3px 4px grey);
+}
+
+.icons {
+    justify-content: space-between;
+    width: 50%;
+}
+
+.icons img {
+    width: 50px;
+    color: #02c8ff;
+    filter: drop-shadow(2px 3px 10px rgba(175, 139, 194, 0.689));
+    position: relative;
+    transition: 0.5s;
+    bottom: 0;
+}
+
+.icons img:hover {
+    cursor: pointer;
+    filter: drop-shadow(2px 3px 10px rgba(82, 172, 228, 0.689));
+    bottom: 5px;
+}
+
+.follow {
+    font-size: 22px;
+    font-weight: bolder;
+    border-bottom: 4px solid;
+    margin-bottom: 20px;
+    transition: 0.5s;
+    animation: colorLineMove 2s ease-in-out infinite;
+}
+
+.website-theme {
+    gap: 20px;
+}
+
+.website-theme a {
+    font-size: 18px;
+    text-decoration: none;
+    color: white;
+    position: relative;
+    transition: 0.5s;
+    bottom: 0;
+}
+
+.website-theme a:hover {
+    bottom: 5px;
+    text-shadow: 2px 0 2px rgb(0, 217, 255);
+}
+
+/* -------------- Footer Animation ----------------------- */
+@keyframes colorLineMove {
+    0% {
+        border-image: linear-gradient(to right, #ec0029 0%, purple 25%, transparent 25%, transparent 50%, transparent 50%, transparent 75%, transparent 75%, transparent 100%) 1;
+    }
+
+    30% {
+        border-image: linear-gradient(to right, #ec0029 0%, purple 25%, #87015a 25%, rgb(169, 3, 246) 50%, transparent 50%, transparent 75%, transparent 75%, transparent 100%) 1;
+    }
+
+    60% {
+        border-image: linear-gradient(to right, #ec0029 0%, purple 25%, transparent 25%, transparent 50%, #011a97 50%, rgb(3, 188, 224) 75%, transparent 75%, transparent 100%) 1;
+    }
+
+    90% {
+        border-image: linear-gradient(to right, #ec0029 0%, purple 25%, transparent 25%, transparent 50%, transparent 50%, transparent 75%, #5a9e01 75%, rgb(242, 142, 2) 100%) 1;
+    }
+
+    100% {
+        border-image: linear-gradient(to right, #ec0029 0%, purple 25%, transparent 25%, transparent 50%, transparent 50%, transparent 75%, transparent 75%, transparent 100%) 1;
+    }
+}
+
+@media (min-width:1200px) {
+    .login-content-part {
+        width: 30rem;
+        gap: 11rem;
+    }
+}
+
+/* ----------------->>>>>>>>>> Some Responsive Code <<<<<<<<<<<<------------------ */
+/* Large Screens, Desktop */
+@media (max-width:1200px) and (min-width:1025px) {}
+
+/* Small Screens,Laptops */
+@media (max-width:1024px) and (min-width:768px) {
+    .heading {
+        font-size: 5rem;
+    }
+
+    .subHeader {
+        gap: 10px;
+    }
+
+    .rightside {
+        width: 360px;
+    }
+
+    .imgcls {
+        width: 360px;
+    }
+
+    .top2 {
+        flex-wrap: nowrap ! important;
+        gap: 0;
+    }
+
+    .imgs0 {
+        width: 250px;
+    }
+
+    .btnMe {
+        font-size: 18px;
+    }
+
+    .top-head1 {
+        font-size: 25px;
+    }
+
+    .top-head2 {
+        font-size: 23px;
+    }
+
+    .blogBtn {
+        width: 220px;
+    }
+
+    .img-part {
+        width: 100% !important;
+    }
+
+    .img-part img {
+        bottom: 100px;
+        width: 250px;
+    }
+
+    .footer-part {
+        margin-top: 110px;
+    }
+
+    .right-footer {
+        width: 100% !important;
+    }
+
+    .copyright {
+        text-align: center;
+    }
+
+    .website-theme {
+        align-items: flex-start;
+    }
+
+    .icons {
+        width: 75% !important;
+    }
+
+    .icons img {
+        width: 40px;
+    }
+
+    .data {
+        width: 75% !important;
+    }
+
+    .bw {
+        width: 75% !important;
+    }
+
+    .fll {
+        width: 75% !important;
+    }
+}
+
+/* iPads,Tablet */
+@media (max-width:767px) and (min-width:481px) {
+    .heading {
+        font-size: 5rem;
+    }
+
+    .imgcls {
+        width: 350px;
+    }
+
+    .img-part {
+        width: 100% !important;
+    }
+
+    .img-part img {
+        bottom: 100px;
+        width: 200px;
+    }
+
+    .footer-part {
+        margin-top: 110px;
+    }
+
+    .right-footer {
+        width: 100% !important;
+    }
+
+    .copyright {
+        text-align: center;
+    }
+
+    .website-theme {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .icons {
+        width: 100% !important;
+    }
+
+    .icons img {
+        width: 40px;
+    }
+
+    .data {
+        width: 100% !important;
+    }
+
+    .bw {
+        width: 100% !important;
+    }
+
+    .fll {
+        width: 100% !important;
+    }
+}
+
+/* Mobile Decies */
+@media (max-width:480px) and (min-width:320px) {
+    .heading {
+        font-size: 4rem;
+    }
+
+    .imgcls {
+        width: 300px;
+    }
+
+    .top-head1 {
+        text-align: center;
+    }
+
+    .top-head2 {
+        text-align: center;
+    }
+
+    .top-head3 {
+        text-align: left;
+    }
+
+    .top31 {
+        width: 100% !important;
+    }
+
+    .top32 {
+        width: 100% !important;
+    }
+
+    .imgbox1 {
+        height: 200px;
+    }
+
+    .img-part {
+        width: 100% !important;
+    }
+
+    .img-part img {
+        bottom: 100px;
+        width: 200px;
+    }
+
+    .footer-part {
+        margin-top: 110px;
+    }
+
+    .right-footer {
+        width: 100% !important;
+    }
+
+    .copyright {
+        text-align: center;
+    }
+
+    .website-theme {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .icons {
+        width: 100% !important;
+    }
+
+    .icons img {
+        width: 40px;
+    }
+
+    .data {
+        width: 100% !important;
+    }
+
+    .bw {
+        width: 100% !important;
+    }
+
+    .fll {
+        width: 100% !important;
+    }
+
+    .login-content-part {
+        width: 22rem;
+    }
+}
+
+/* ----------------------------------- Create Blog Page -----------------------------------*/
+.create-blogPage {
+    background: transparent;
+    box-shadow: 0 0 10px var(--aqua);
+}
+
+.blog-create-head {
+    text-shadow: 3px 0 3px blue;
+    padding: 10px;
+    box-shadow: 5px 5px 3px blue;
+    border-radius: 10px;
+    background: linear-gradient(orangered 50%, orange 50%);
+}
+
+textarea {
+    resize: none;
+}
+
+.blog-create-body {
+    font-size: 20px;
+}
+
+.blog-create-body textarea {
+    box-shadow: 5px 5px 5px orangered;
+    transition: 0.5s;
+}
+
+.blog-create-body textarea:focus {
+    box-shadow: 0 0 10px orangered;
+}
+
+.input-cls {
+    width: 90%;
+}
+
+.taskbar-title {
+    background: blueviolet;
+}
+
+.taskbar-subtitle {
+    background-color: chocolate;
+}
+
+.taskbar-description {
+    background-color: hotpink;
+}
+
+.taskbar-font {
+    padding: 3px;
+}
+
+.taskbar-heading {
+    text-align: center;
+}
+
+.form-floating {
+    font-size: 12px;
+    width: 165px;
+}
+
+.form-select {
+    font-size: 12px;
+}
+
+/* -------------------------- Show Blog Page ---------------------- */
+.bold {
+    font-weight: bold;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.underline {
+    text-decoration: underline black;
+}
+
+.dotted {
+    text-decoration: underline dotted;
+}
+
+.dashed {
+    text-decoration: underline dashed;
+}
+
+.overline {
+    text-decoration: underline overline;
+}
+
+.oblique {
+    font-style: underline oblique;
+}
+
+.description-css {
+    padding: 0;
+}
+
+.desc-text {
+    white-space: pre-line;
+}
+
+.image-part-blog {
+    width: 400px;
+}
+
+.image-part-blog img {
+    width: 400px;
+}
+
+.title-blog-part {
+    width: 40rem;
+    gap: 20px;
+}
+
+.title-text {
+    font-weight: bold;
+    font-size: 30px;
+    white-space: pre-line;
+}
+
+.subTitle-text {
+    white-space: pre-line;
+}
+
+.footer-blog {
+    box-shadow: 0 0px 5px var(--gry);
+}
+
+.file-part {
+    box-shadow: 0 0 5px var(--aqua);
+}
+
+.file-part a {
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    width: 100%;
+}
+
+.numLikes {
+    font-size: 20px;
+    margin: 0;
+}
+
+.comments-part {
+    gap: 5px;
+}
+
+.comments-part img:hover {
+    cursor: pointer;
+}
+
+.commentView {
+    width: 50px;
+}
+
+.like-comment-part img {
+    width: 50px;
+}
+
+.commentMove {
+    animation: moveComment 0.2s ease forwards;
+}
+
+/* --------------Comment Icon Animation ---------------- */
+@keyframes moveComment {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    20% {
+        transform: rotate(25deg);
+    }
+
+    40% {
+        transform: rotate(-25deg);
+    }
+
+    60% {
+        transform: rotate(25deg);
+    }
+
+    80% {
+        transform: rotate(-25deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+
+/* ---------------------------- Blog Items---------------------- */
+.blogContainer {
+    box-shadow: 0 0 10px grey;
+}
+
+.header-part {
+    color: whitesmoke;
+    background: #8080805e;
+    text-align: center;
+}
+
+.header-part h1 {
+    font-family: "Kalam", cursive;
+    font-weight: 300;
+    text-shadow: 3px 0 0 grey;
+}
+
+.blogBox {
+    padding: 20px 0px;
+}
+
+.card {
+    background-color: transparent;
+    border: 10px solid rgba(172, 65, 3, 0.829);
+    color: white;
+    box-shadow: 5px 5px 2px rgb(244, 154, 99);
+    padding: 10px;
+    border-radius: 15px;
+    position: relative;
+    top: 0px;
+    transition: 1s;
+    height: 30rem;
+    /* opacity: 0; */
+}
+
+.card:hover {
+    top: -10px;
+    background-color: rgba(190, 235, 250, 0.822);
+    transition: 0.5s;
+    color: black;
+    box-shadow: 0 0 15px rgb(250, 97, 26);
+}
+
+.front-blog-img {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.front-blog-img img {
+    transition: 0.7s;
+    height: 13rem;
+}
+
+.front-blog-img img:hover {
+    transform: scale(1.1);
+}
+
+.my-card-body {
+    padding: 0;
+}
+
+.my-card-body img {
+    width: 50px;
+}
+
+.numLikes {
+    font-size: 20px;
+    margin: 0;
+}
+
+.comments-part {
+    gap: 5px;
+}
+
+.shrink {
+    animation: shrink 0.5s ease forwards;
+}
+
+.commentView {
+    width: 50px;
+}
+
+/* ---------------------- Like Animation ------------------------ */
+@keyframes shrink {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.scroll {
+    opacity: 1;
+    top: 0;
+}
+
+/* --------------------------------- Login Part ------------------------------*/
+.login-form {
+    padding: 1rem;
+}
+
+.login-main-box {
+    box-shadow: 0 0 10px grey;
+}
+
+.login-process {
+    width: 100%;
+}
+
+.login-part {
+    box-shadow: 0 0 10px grey;
+    width: 25rem;
+    font-family: "Shrikhand", serif;
+}
+
+.login-content-part {
+    box-shadow: 0 0 10px grey;
+    width: 25rem;
+    gap: 6rem;
+    font-family: 'Pacifico';
+    font-size: 18px;
+}
+
+.login-content-head h1 {
+    text-shadow: 2px 3px 1px blue;
+}
+
+
+.login-head h1 {
+    font-size: 3.5rem;
+    text-shadow: 3px 3px 2px lightseagreen;
+    font-family: "Faster One", system-ui;
+}
+
+/* -------------------------------- Login Responsive ------------------------------- */
+@media (min-width:1200px) {
+    .login-content-part {
+        width: 30rem;
+        gap: 2rem;
+        padding: 3rem 0rem !important;
+    }
+}
+
+@media (max-width:1024px) and (min-width:768px) {
+    .login-content-part {
+        width: 30rem;
+        gap: 0;
+    }
+
+    .login-part {
+        width: 30rem;
+    }
+}
+
+@media (max-width:480px) and (min-width:320px) {
+    .login-content-part {
+        width: 22rem;
+        gap: 0;
+    }
+}
+
+/* ----------------------------------- Signup Part ------------------------------ */
+.signup-part {
+    padding: 3rem 0rem !important;
+}
+
+.signup-form {
+    margin: 1rem;
+}
+
+.signup-content-head h1 {
+    text-shadow: 2px 3px 1px rgb(255, 115, 0);
+}
+
+/* --------------------------------- Contact Page -------------------------------------- */
+.contact-page {
+    width: 25rem;
+    box-shadow: 0 0 10px aqua;
+}
+
+.contact-form {
+    width: 80%;
+    font-family: 'Kalam';
+}
+
+.contact-head {
+    font-family: 'Shrikhand';
+}
+
+.contact-btn {
+    transition: 0.5s;
+}
+
+.contact-btn:hover {
+    border-color: var(--bs-primary);
+    box-shadow: 0 0 5px aqua;
+}
+
+/* ------------------------------ About Page --------------------------------------- */
+.about-content {
+    box-shadow: 0 0 10px aqua;
+    font-size: 1.2rem;
+    font-family: 'Kalam';
+}
+
+.accordion {
+    width: 90%;
+    border: none;
+    box-shadow: 0 0 10px aqua;
+}
+
+.accordion-item {
+    background: transparent !important;
+}
+
+.about-head {
+    font-family: 'Faster One';
+}
+
+.about-content {
+    box-shadow: 0 0 10px aqua;
+    font-size: 1.2rem;
+    font-family: 'Kalam';
+}
+
+.part1-content {
+    width: 45rem;
+    box-shadow: 0 0 10px aqua;
+}
+
+.part1-img img {
+    width: 20rem;
+    filter: drop-shadow(2px 4px 6px white);
+}
+
+.pp-img img {
+    width: 18rem;
+    filter: drop-shadow(2px 4px 6px blue);
+}
+
+/* -------------------------- Profile ------------------------- */
+.profile:hover {
+    top: 0;
+    background-color: transparent;
+    color: white;
+}
+
+/* ------------------------- Modal --------------------------- */
+.modal-footer img:hover {
+    cursor: pointer;
+}
+
+/* --------------------------Show Blog---------------------------- */
+.img-show-blog {
+    background-color: #b93d02;
+}
+
+.blogPage {
+    background: whitesmoke;
+    box-shadow: 0 0 10px var(--aqua);
+}
+
+.cut {
+    width: 1.5rem !important;
+    transition: 0.5s;
+}
+
+.cut:hover {
+    cursor: pointer;
+    filter: drop-shadow(0 0 5px white);
+}
+
+.filter {
+    font-size: 18px;
+}
+
+.list-group-item {
+    border-bottom: 1px solid white;
+}
