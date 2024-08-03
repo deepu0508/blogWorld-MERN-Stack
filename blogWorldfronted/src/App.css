@@ -34,6 +34,15 @@ body::-webkit-scrollbar-thumb {
     align-items: center;
 }
 
+/* --------------------Navbar CSS----------------------------- */
+.navContainer{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 11;
+}
+
+
 /* --------------------Background CSS----------------------------- */
 .main {
     width: 100vw;
@@ -368,7 +377,7 @@ i {
 
 .top2 {
     gap: 30px;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 
 .top-head3 {
@@ -392,7 +401,7 @@ i {
 } */
 
 .imgbox1 {
-    overflow: hidden;
+    /* overflow: hidden; */
     width: 400px;
     height: 300px;
     gap: 10px;
@@ -404,9 +413,9 @@ i {
 }
 
 /* -------------------------- Home Page 3 ------------------------- */
-.top32 {
+/* .top32 {
     overflow-x: hidden;
-}
+} */
 
 
 /* -------------------------- Footer Part ------------------------- */

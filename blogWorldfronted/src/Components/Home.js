@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef } from 'react'
 import blog from "./Images/blog1.jpg"
 import dMaterial from "./Images/pink.png"
 import insta from "./Images/instagram.png"
@@ -13,14 +13,14 @@ import { Link } from 'react-router-dom'
 import { useGSAP } from '@gsap/react'
 import gsap from "gsap"
 import ScrollTrigger from 'gsap/ScrollTrigger'
+import Draggable from 'gsap/Draggable'
 import $ from "jquery"
 
 export default function Home() {
     // Gsap plugin in useGSAP
     gsap.registerPlugin(useGSAP);
-    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger, Draggable);
 
-    const finalPath = `M 10 50 Q 250 50 500 50`;
     const container = useRef();
     const { contextSafe } = useGSAP({ scope: container });
 
@@ -42,10 +42,10 @@ export default function Home() {
             stagger: { from: "center", amount: -0.3 }
         });
         tl.from(".imgcls", {
+            y: 200,
             scale: 0,
             opacity: 0,
             duration: 0.8,
-            rotate: 360,
         }, '-=0.7');
         tl.from(".title", {
             x: -300,
@@ -64,12 +64,22 @@ export default function Home() {
             duration: 0.5
         })
 
+        // Home page 2
         let tl2 = gsap.timeline({
             scrollTrigger: {
                 trigger: ".home-page1",
                 start: "top 80%",
-                // markers:true,
-                // scrub:2
+                end: "top 10%",
+                scrub: 5
+            }, onStart: () => {
+                Draggable.create(".imgbox2", {
+                    type: "rotation",
+                    inertia: true,
+                })
+                Draggable.create(".imgbox", {
+                    bounds: ".home-page1",
+                    inertia: true,
+                })
             }
         })
         tl2.from(".top-head1", {
@@ -88,35 +98,42 @@ export default function Home() {
             y: 100,
             opacity: 0,
             scale: 0,
-            duration: 0.5
+            duration: 0.5,
+
         })
-        tl2.from(".imgbox1 img", {
-            y: Math.floor(Math.random() * 500 + 100),
-            x: Math.floor(Math.random() * 500 + 100),
+        tl2.from(".imgs1", {
+            y: gsap.utils.random(-200, 200, 100),
+            x: gsap.utils.random(-200, 200, 100),
             scale: 0,
             opacity: 0,
             rotate: 1020,
             duration: 2,
-            stagger: { from: "random", amount: 0.4 },
-            repeat: 1,
-            yoyo: true
         });
 
-        $(".string").on("mousemove", (e) => {
-            gsap.to("svg path", {
-                attr: { d: `M 10 50 Q ${e.originalEvent.x-550} ${e.originalEvent.y-25} 500 50` },
-                duration: 0.5,
-                // ease: "elastic.out(1.75,0.2)"
-            });
-            console.log(`M 10 50 Q ${e.originalEvent.x-550} ${e.originalEvent.y} 500 50`)
-        });
-
-        $(".string").on("mouseleave", () => {
-            gsap.to("svg path", {
-                attr: { d: finalPath },
-                duration: 0.5,
-                // ease: "elastic.out(1.75,0.2)"
-            })
+        $(".top32 .subText").slideUp()
+        let tl3 = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".home-page3",
+                start: "top 50%",
+                end: "top 30%",
+                scrub: 4
+            }
+            , onStart: () => {
+                $(".top32 .subText").slideToggle(2000)
+            },
+        })
+        $('.home-page2').on("wheel", function (e) {
+            if (e.originalEvent.deltaY < 0) {
+                $(".top32 .subText").slideUp(2000)
+            }
+             else {
+                $(".top32 .subText").slideDown(2000)
+            }
+        })
+        tl3.from(".top32 .text", {
+            y: 100,
+            scale: 0,
+            duration: 0.8
         })
 
     }, { scope: container });
@@ -174,7 +191,7 @@ export default function Home() {
                     <div className="container df page1-top flex-column justify-content-start">
                         <div className="container df flex-column top1">
                             <div className="container df flex-column top1">
-                                <p className="top-head1"><span className="create"><span className="cwrd">C</span> <i class="ri-quill-pen-fill"></i></span>reate <span className="create"><span className="cwrd">o</span><i class="ri-sun-fill"></i></span>wn grateful <span className="create"><span className="cwrd">b</span><i class="ri-remix-run-fill"></i></span>logs and show everyone through this site.</p>
+                                <p className="top-head1"><span className="create"><span className="cwrd">C</span> <i className="ri-quill-pen-fill"></i></span>reate <span className="create"><span className="cwrd">o</span><i className="ri-sun-fill"></i></span>wn grateful <span className="create"><span className="cwrd">b</span><i className="ri-remix-run-fill"></i></span>logs and show everyone through this site.</p>
                                 <p className="top-head2" id='top-head2'>You tried different type and category of blogs.</p>
                             </div>
                             <p className="top-head2 top-head3">In this site all types of blogs cataegories are available (Food,
@@ -184,29 +201,33 @@ export default function Home() {
                                 comment also your blogs through other and likes counted also.</p>
                         </div>
                         <div className="container df flex-wrap top2">
-                            <div className="df flex-column imgbox1 flex-wrap">
-                                {/* Pending */}
-                                {/* <i class="ri-sparkling-fill"></i>
-                                <i class="ri-dna-fill"></i> */}
-                                <img src={star} className="imgs0" id="imgs1" alt="" />
-                                {/* <svg viewBox="0 0 100 100" className='heart'>
+                            <div className="imgbox1">
+                                <div className="df flex-column imgbox1 imgbox flex-wrap">
+                                    {/* Pending */}
+                                    {/* <i className="ri-sparkling-fill"></i>
+                                <i className="ri-dna-fill"></i> */}
+                                    <img src={star} className="imgs0" id="imgs1" alt="" />
+                                    {/* <svg viewBox="0 0 100 100" className='heart'>
                                     <path fill="transparent" stroke='red' d="M50,25 C35,0,-14,25,20,60 L50,90 L80,60 C114,20,65,0,50,25"></path>
-                                </svg> */}
+                                    </svg> */}
+                                </div>
                             </div>
                             {/* <button type="button" className="btn btn-primary btnMe blogBtn">Create your Blog</button> */}
                             <div className="df flex-column blog-btn">
                                 <Link to={"/login"} className="btn btn-primary btnMe blogBtn"> Create your Blog</Link>
                             </div>
-                            <div className="df flex-column imgbox1 imgbox2">
-                                {/* Pending */}
-                                <img src={flower} className="imgs0 imgs1" id="imgs2" alt="" />
-                                {/* <i class="ri-flower-fill"></i>
-                                <i class="ri-restaurant-fill"></i> */}
+                            <div className="imgbox1">
+                                <div className="df flex-column imgbox1 imgbox2">
+                                    {/* Pending */}
+                                    <img src={flower} className="imgs0 imgs1" id="imgs2" alt="" />
+                                    {/* <i className="ri-flower-fill"></i>
+                                <i className="ri-restaurant-fill"></i> */}
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="container df home home-page2 rounded my-4 flex-wrap">
+                <div className="container df home home-page2 rounded my-4 flex-wrap home-page3">
                     <div className="container df page2-top  justify-content-start flex-wrap">
                         <div className="container df flex-column  w-50 align-items-start top31">
                             <img src={dMaterial} className="imgp w-100 my-3" alt="" />
@@ -216,11 +237,11 @@ export default function Home() {
                             <p className="subText">Create your own stylish blog and use those options which are fit your
                                 blogs.Choose from a selection of easy-to-use to new simple and stylish blog.
                                 Under every some time comes new latest update for design and also available templates. </p>
-                            <div className="string">
+                            {/* <div className="string">
                                 <svg height="100" width="550">
                                     <path d="M 10 50 Q 250 50 500 50" stroke="white" fill="transparent" />
                                 </svg>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>

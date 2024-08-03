@@ -37,6 +37,7 @@ function App() {
           <div className="bg-dark text-light" id='main' onScroll={() => console.log("object")}>
             <BackgroundBubble />
             <Navbar logged={logged} setLogged={setLogged} showAlert={showAlert} />
+            <div className="mt-5">
             <Alert alert={alert} />
             <Routes>
               <Route exact={'/'} path='/' element={<Home />} />
@@ -52,6 +53,7 @@ function App() {
               <Route exact={'/pp'} path='/pp' element={<PrivacySecurity />} />
               <Route exact={'/profile'} path='/profile' element={<UserProfile showAlert={showAlert} />} />
             </Routes>
+            </div>
             {/* <Cursor /> */}
           </div>
         </BrowserRouter>
