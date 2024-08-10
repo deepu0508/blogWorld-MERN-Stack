@@ -68,7 +68,7 @@ export default function Login(props) {
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="password" className="form-label">Password</label>
-                                        <input type="password" id="password" name="password" required onChange={onchange} value={crediantial.password} className="form-control"
+                                        <input type="password" id="password" name="password" placeholder='Password' required onChange={onchange} value={crediantial.password} className="form-control"
                                             aria-describedby="passwordHelpBlock" />
                                     </div>
                                     <div className="mb-3">

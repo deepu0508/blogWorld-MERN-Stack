@@ -69,7 +69,7 @@ export default function Home() {
             scrollTrigger: {
                 trigger: ".home-page1",
                 start: "top 80%",
-                end: "top 10%",
+                end: "top 2%",
                 scrub: 5
             }, onStart: () => {
                 Draggable.create(".imgbox2", {
@@ -91,14 +91,14 @@ export default function Home() {
             y: 100,
             opacity: 0,
             scale: 0,
-            duration: 1,
+            duration: 2,
             stagger: 0.5
         })
         tl2.from(".blog-btn", {
             y: 100,
             opacity: 0,
             scale: 0,
-            duration: 0.5,
+            duration: 1,
 
         })
         tl2.from(".imgs1", {
@@ -116,19 +116,11 @@ export default function Home() {
                 trigger: ".home-page3",
                 start: "top 50%",
                 end: "top 30%",
-                scrub: 4
+                // scrub: 4
             }
             , onStart: () => {
                 $(".top32 .subText").slideToggle(2000)
             },
-        })
-        $('.home-page2').on("wheel", function (e) {
-            if (e.originalEvent.deltaY < 0) {
-                $(".top32 .subText").slideUp(2000)
-            }
-             else {
-                $(".top32 .subText").slideDown(2000)
-            }
         })
         tl3.from(".top32 .text", {
             y: 100,
@@ -237,11 +229,6 @@ export default function Home() {
                             <p className="subText">Create your own stylish blog and use those options which are fit your
                                 blogs.Choose from a selection of easy-to-use to new simple and stylish blog.
                                 Under every some time comes new latest update for design and also available templates. </p>
-                            {/* <div className="string">
-                                <svg height="100" width="550">
-                                    <path d="M 10 50 Q 250 50 500 50" stroke="white" fill="transparent" />
-                                </svg>
-                            </div> */}
                         </div>
                     </div>
                 </div>

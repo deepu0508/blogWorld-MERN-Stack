@@ -18,7 +18,7 @@ export default function Contact() {
                     </div>
                     <div className="mb-3">
                         <label htmlFor="contact-txt" className="form-label">Enter Text</label>
-                        <textarea className="form-control" id="contact-txt" rows="3"></textarea>
+                        <textarea className="form-control" id="contact-txt" rows="3" placeholder='Enter some here...'></textarea>
                     </div>
                     <div className="mb-3 df justify-content-end">
                         <button className="btn btn-info contact-btn" type="submit" id="contact">Send →</button>

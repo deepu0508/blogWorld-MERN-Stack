@@ -1,14 +1,55 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import likeImg from "./Images/like.png";
 import { Link } from "react-router-dom";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import $ from "jquery"
 
 export default function BlogItem(props) {
+  gsap.registerPlugin(useGSAP, ScrollTrigger);
+  const container = useRef();
+  // const { contextSafe } = useGSAP({ scope: container });
+
   const { blog, count } = props;
-  const { title, description, likes, image,_id } = blog;
+  const { title, description, likes, image, _id } = blog;
   const host = 'http://localhost:8900'
 
   const [like, setLike] = useState(likes);
   const [blogCurrent, setBlogCurrent] = useState(blog);
+
+  // useEffect(() => {
+  //   const itemTop = document.querySelector(`#card${count}`).getBoundingClientRect().top;
+  //   const screenButtom = $(window).height();
+  //   if ((screenButtom - screenButtom / 3) > itemTop) {
+  //     itemPopOut();
+  //   }
+  // })
+
+  // useGSAP(() => {
+  //   gsap.to(".card", {
+  //     y: -200,
+  //     scale: 0.2,
+  //     opacity: 0,
+  //   })
+  // }, { scope: container })
+
+  // $(window).on("scroll", () => {
+  //   const itemTop = document.querySelector(`#card${count}`).getBoundingClientRect().top;
+  //   const screenButtom = $(window).height();
+  //   if ((screenButtom - screenButtom / 3) > itemTop) {
+  //     itemPopOut();
+  //   }
+  // })
+
+  // const itemPopOut = contextSafe(() => {
+  //   gsap.to(`#card${count}`, {
+  //     y: 0,
+  //     scale: 1,
+  //     opacity: 1,
+  //     duration: 1,
+  //   });
+  // })
 
   const shrink = () => {
     document.getElementById(`imgLike${count}`).classList.add("shrink");
@@ -37,8 +78,8 @@ export default function BlogItem(props) {
 
   return (
     <>
-      <div className="blogBox">
-        <div className="card card1" id="card" style={{ width: "20rem" }}>
+      <div className="blogBox" ref={container}>
+        <div className="card card1" id={`card${count}`} style={{ width: "20rem" }}>
           <div className="front-blog-img">
             <img
               src={`http://localhost:8900/${image}`}

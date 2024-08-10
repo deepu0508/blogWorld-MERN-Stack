@@ -7,16 +7,18 @@ export default function Navbar(props) {
   // Animations
   const container = useRef();
   gsap.registerPlugin(useGSAP);
+  const { contextSafe } = useGSAP({ scope: container });
+  
 
-  useGSAP(()=>{
-    gsap.from(".nav-link , .navbar-brand",{
-      y:-200,
-      opacity:0,
-      scale:0,
-      duration:1,
-      stagger:0.2
+  useGSAP(() => {
+    gsap.from(".nav-link , .navbar-brand", {
+      y: -200,
+      opacity: 0,
+      scale: 0,
+      duration: 1,
+      stagger: 0.2
     })
-  },{scope:container})
+  }, { scope: container })
 
   // This is global props which is decide user login or logout
   const { logged, setLogged, showAlert } = props;
@@ -49,6 +51,21 @@ export default function Navbar(props) {
     toggleId.classList.contains("show") ? toggleId.classList.remove("show") : toggleId.classList.add("show");
   }
 
+  const dropdown = contextSafe(() => {
+    let tl = gsap.timeline();
+    tl.from(".dropdown-menu", {
+      y: -400,
+      opacity: 0,
+       duration: 0.8
+    })
+    tl.from(".dropdown-item",{
+      y:-100,
+      opacity:0,
+      scale:0,
+      duration:0.7,
+      stagger:0.3
+    })
+  })
 
   const logout = () => {
     sessionStorage.removeItem("authtoken");
@@ -77,23 +94,11 @@ export default function Navbar(props) {
                 <li className="nav-item" style={{ display: logged ? "inline-block" : "none" }} onClick={toggleTitle}>
                   <Link className='nav-link' to={'/createblog'}>Create Blog</Link>
                 </li>
-                {/* <li className="nav-item dropdown">
-                  <a className="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Categories
-                  </a>
-                  <ul className="dropdown-menu" id='dropdown-items'>
-                    {itemsValue.map((i) => {
-                      return <li><a className="dropdown-item" href={itemsRoot[a++]} >{i}</a></li>
-                    })}
-                    <li><hr className="dropdown-divider" /></li>
-                    <li><a className="dropdown-item" href="/">Something else here</a></li>
-                  </ul>
-                </li> */}
                 <li className="nav-item">
                   <Link className='nav-link' to={'/contact'} onClick={toggleTitle}>Contact</Link>
                 </li>
                 <li className="nav-item dropdown">
-                  <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <a className="nav-link dropdown-toggle" id='dropdown-menu' onClick={dropdown} role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Others
                   </a>
                   <ul className="dropdown-menu">

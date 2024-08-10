@@ -41,7 +41,17 @@ body::-webkit-scrollbar-thumb {
     top: 0;
     z-index: 11;
 }
-
+.dropdown-menu{
+    background: linear-gradient(to top, #6000ff80, transparent, #0056b3c9, transparent);
+    box-shadow: 0 0 5px aqua;
+}
+.dropdown-item{
+    color: white;
+}
+.dropdown-item:hover{
+    color: white;
+    background: linear-gradient(to top, black,darkblue);
+}
 
 /* --------------------Background CSS----------------------------- */
 .main {
@@ -418,6 +428,12 @@ i {
 } */
 
 
+/* -------------------------- Blog Page ------------------------- */
+/* .blogBox{ */
+    /* opacity: 0; */
+/* } */
+
+
 /* -------------------------- Footer Part ------------------------- */
 .footer-part {
     margin-top: 150px;
@@ -607,6 +623,13 @@ i {
 
     .fll {
         width: 75% !important;
+    }
+
+    .home-page2{
+        height: 550px;
+    }
+    .imgbox1{
+        width: 300px;
     }
 }
 
@@ -1149,6 +1172,34 @@ textarea {
     box-shadow: 0 0 5px aqua;
 }
 
+.form-control{
+    background: transparent;
+    color: aqua;
+}
+
+.form-control::placeholder{
+    color: aqua;
+    background: transparent;
+}
+
+.form-control:focus{
+    color: aqua;
+    background: transparent;
+}
+
+.contact-form textarea{
+    color: aqua;
+    background: transparent;
+}
+.contact-form textarea::placeholder{
+    color: aqua;
+    background: transparent;
+}
+.contact-form textarea:focus{
+    color: aqua;
+    background: transparent;
+}
+
 /* ------------------------------ About Page --------------------------------------- */
 .about-content {
     box-shadow: 0 0 10px aqua;
@@ -1229,4 +1280,19 @@ textarea {
 
 .list-group-item {
     border-bottom: 1px solid white;
+}
+
+/* --------------------------jQuery Animation Classes---------------------------- */
+
+.animation{
+    transform: translate3d(0,-200px,0);
+    scale: 0;
+    opacity: 0;
+}
+
+.back-animate{
+    transform: translate3d(0,0,0);
+    scale: 1;
+    opacity: 1;
+    transition-duration: 1s;
 }

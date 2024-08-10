@@ -54,7 +54,7 @@ function App() {
               <Route exact={'/profile'} path='/profile' element={<UserProfile showAlert={showAlert} />} />
             </Routes>
             </div>
-            {/* <Cursor /> */}
+            <Cursor />
           </div>
         </BrowserRouter>
       </BlogState>

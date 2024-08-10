@@ -7,21 +7,28 @@ import blogContext from '../Context/Blogs/blogContext';
 import deleteImg from "./Images/delete.png"
 
 export default function ReadBlog(props) {
-  const { logged } = props;
-  const host = "http://localhost:8900";
+  const { logged } = props; //--> it checking user are login or not 
+
+  const host = "http://localhost:8900";//-> it is backend server
+
+  // It is Context which is store some var's and methods
   const context = useContext(blogContext);
   const navigate = useNavigate();
   const { userInfo, getUser,
     setTitleStyle, setSubTitleStyle, setDescriptionStyle, setBlogData, setUpdateBtn
   } = context;
+
+  // It is use for data received from previous component
   const location = useLocation();
   const { data } = location.state;
-  const { title, subTitle, description, image, file, likes, author, writeDate, _id, blogInfoId, user, type } = data;
+  const { title, subTitle, description, image, file, likes, author, writeDate, _id, blogInfoId, user, type } = data; //->destruc data
 
+  // hook of bolg style information
   const [titleInfo, setTitleInfo] = useState({ fontStyle: "", color: "", fontSize: "", fontFamily: "", })
   const [subTitleInfo, setSubTitleInfo] = useState({ fontStyle: "", color: "", fontSize: "", fontFamily: "", })
   const [descriptionInfo, setDescriptionInfo] = useState({ fontStyle: "", color: "", fontSize: "", fontFamily: "", });
 
+  // Extra useable hook for other purpose
   const [like, setLike] = useState(likes);
   const [comment, setComment] = useState("");
   const [allComment, setAllComment] = useState([]);
@@ -47,7 +54,7 @@ export default function ReadBlog(props) {
   }, []);
 
 
-  // ----------Animation 
+  // ----------------->>>>>>>>>>>>>>>> Animation 
   const moveCom = () => {
     document.getElementById("comment").classList.add("commentMove")
     setTimeout(() => {
@@ -77,7 +84,7 @@ export default function ReadBlog(props) {
       if (closeAll.classList.contains("show")) { closeAll.classList.remove("show") }
     }
   }
-  // --------
+  // <<<<<<<<<<<<<<<<<<<<<----------------------
 
   // It is like incrementing --> Blog data update by how many users are likes of particular blog
   const incrementLike = async () => {
