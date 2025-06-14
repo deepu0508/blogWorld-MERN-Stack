@@ -59,12 +59,13 @@ export default function BlogItem(props) {
   };
 
   const incrementLike = async () => {
-    if (sessionStorage.getItem("authtoken")) {
+    if (sessionStorage.getItem("auth-token") && sessionStorage.getItem("bw_auth_token")) {
       const response = await fetch(`${host}/api/blog/blogLike/${_id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "auth-token": sessionStorage.getItem("authtoken"),
+          "auth-token": sessionStorage.getItem("auth-token"),
+          "bw_auth_token": sessionStorage.getItem("bw_auth_token"),
         },
       });
       const data = await response.json();

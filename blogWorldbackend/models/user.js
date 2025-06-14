@@ -11,7 +11,17 @@ const userSchema = new Schema({
         require: true,
         unique: true
     },
+    usernameHash: {
+        type: String,
+        require: true,
+        unique: true
+    },
     email: {
+        type: String,
+        require: true,
+        unique: true
+    },
+    mailid: {
         type: String,
         require: true,
         unique: true

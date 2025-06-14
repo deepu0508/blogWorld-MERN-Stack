@@ -7,7 +7,8 @@ const multer = require("multer");
 const User = require("../models/user");
 const fs = require("fs");
 const BlogData = require("../models/blogInfo");
-const Comments = require("../models/comments")
+const Comments = require("../models/comments");
+const verifyUser = require("../middleware/verifyUser");
 // const path = require("path")
 
 const storage = multer.diskStorage({
@@ -31,7 +32,7 @@ router.post(
     body("title", "Enter valid Title").isLength({ min: 20 }),
     body("description", "Enter valid description").isLength({ min: 100 }),
   ],
-  fetchUser,
+  fetchUser,verifyUser,
   async (req, res) => {
     let success = false;
     try {
@@ -75,7 +76,7 @@ router.post(
             description,
             type,
             subTitle: subTitle || "",
-            author: author.username,
+            author: author.name,
             user: req.user.id,
             image: String(imgPath).replace("public/", "") || "/",
             file: "",
@@ -89,7 +90,7 @@ router.post(
             description,
             type,
             subTitle: subTitle || "",
-            author: author.username,
+            author: author.name,
             user: req.user.id,
             image: String(imgPath).replace("public/", "") || "/",
             file: String(file).replace("public/", "") || "/",
@@ -109,7 +110,7 @@ router.post(
 );
 
 // Router 2:Fetch all blogs of User with Authentication
-router.post("/fetchblogs", fetchUser, async (req, res) => {
+router.post("/fetchblogs", fetchUser,verifyUser, async (req, res) => {
   let success = false;
   try {
     const blogs = await Blog.find({ user: req.user.id });
@@ -122,7 +123,7 @@ router.post("/fetchblogs", fetchUser, async (req, res) => {
 });
 
 // Router 3:Fetch all Blogs for Gerneral Public without authentication and not update, delete
-router.post("/fetchall", async (req, res) => {
+router.post("/fetchall",verifyUser, async (req, res) => {
   let success = false;
   try {
     const allBlogs = await Blog.find();
@@ -135,7 +136,7 @@ router.post("/fetchall", async (req, res) => {
 });
 
 // Router 4:Blog Update by particular User with Authentication useing POST Method
-router.post("/updateblog/:id", fetchUser, async (req, res) => {
+router.post("/updateblog/:id", fetchUser,verifyUser, async (req, res) => {
   let success = false;
   try {
     // Fetch all updated values
@@ -217,7 +218,7 @@ router.post("/updateblog/:id", fetchUser, async (req, res) => {
 });
 
 // Router 5: Blog Delete by User with Authentication
-router.delete("/deleteblog/:id", fetchUser, async (req, res) => {
+router.delete("/deleteblog/:id", fetchUser,verifyUser, async (req, res) => {
   let success = false;
   try {
     // Check blog are available or not in db
@@ -254,7 +255,7 @@ router.delete("/deleteblog/:id", fetchUser, async (req, res) => {
   }
 });
 
-router.post("/blogLike/:id", fetchUser, async (req, res) => {
+router.post("/blogLike/:id", fetchUser,verifyUser, async (req, res) => {
   let success = false;
   try {
     const userId = req.user.id;

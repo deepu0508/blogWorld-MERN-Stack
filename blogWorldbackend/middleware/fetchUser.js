@@ -1,11 +1,11 @@
 const jwt = require("jsonwebtoken");
-const JWT_TOKEN = "Bratadipta02947@#$";
+const JWT_TOKEN = process.env.JWT_TOKEN;
 
 const fetchUser = (req, res, next) => {
     // Taking User Authentication Token
     const token = req.header("auth-token");
     if (!token) {
-        return res.status(401).json({ error: "Plaese use valid Auth token" });
+        return res.status(401).json({ error: "Auth token not found" });
     }
 
     try {

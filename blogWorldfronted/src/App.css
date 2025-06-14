@@ -8,6 +8,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Allura&family=Architects+Daughter&family=Audiowide&family=Bangers&family=Cookie&family=Danfo&family=Honk&family=Jacquard+24+Charted&family=Jaini&family=Jersey+10&family=Jersey+25+Charted&family=Libre+Barcode+39&family=Monoton&family=Press+Start+2P&family=Rubik+Bubbles&family=Special+Elite&family=Spicy+Rice&family=Tangerine:wght@400;700&family=VT323&family=Zeyada&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Micro+5&display=swap');
 
+@import '../node_modules/@syncfusion/ej2-base/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-buttons/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-inputs/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-popups/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-lists/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-navigations/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-splitbuttons/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-dropdowns/styles/material.css';
+@import "../node_modules/@syncfusion/ej2-react-documenteditor/styles/material.css";
+
 /* -------------- Main CSS of Body */
 * {
     margin: 0;
@@ -212,6 +222,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .home {
+    background: linear-gradient(to top, #d38d8d21, #9148481c);
     box-shadow: 0 0 10px grey;
 }
 
@@ -255,7 +266,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 .home-page1 {
-    background: linear-gradient(to bottom, #add4e659, #17cfff85);
+    /* background: linear-gradient(to bottom, #add4e659, #17cfff85); */
+    background: linear-gradient(to bottom, #8dbdd345, #48829138);
     box-shadow: 1px 5px 0 rgb(6, 170, 235);
 }
 
@@ -352,7 +364,9 @@ i {
 
 /* --------------------- Home Page 2----------------------------- */
 .home-page2 {
-    background: #a00056b8;
+    /* background: #a00056b8; */
+    background: linear-gradient(to top, #c06aba4f, #b142b44a);
+    box-shadow: 1px 5px 0 deeppink;
 }
 
 .top1 {
@@ -436,8 +450,10 @@ i {
 
 /* -------------------------- Footer Part ------------------------- */
 .footer-part {
-    margin-top: 150px;
-    background: rgba(0, 0, 0, 0.658);
+    /* margin-top: 150px; */
+    /* background: rgba(0, 0, 0, 0.658); */
+    margin-top: 130px;
+    background: rgb(0 0 0 / 43%);
 }
 
 .email {
@@ -445,12 +461,14 @@ i {
 }
 
 .right-footer {
-    gap: 15px;
+    /* gap: 15px; */
+    gap: 10px;
     padding: 20px 0px;
 }
 
 .img-part img {
-    width: 300px;
+    /* width: 300px; */
+    width: 230px;
     position: relative;
     bottom: 150px;
     filter: drop-shadow(2px 3px 4px grey);
@@ -693,7 +711,7 @@ i {
 /* Mobile Decies */
 @media (max-width:480px) and (min-width:320px) {
     .heading {
-        font-size: 4rem;
+        font-size: 3.8rem;
     }
 
     .imgcls {
@@ -1149,6 +1167,9 @@ textarea {
 }
 
 /* --------------------------------- Contact Page -------------------------------------- */
+.cnt{
+    display: inline-block;
+}
 .contact-page {
     width: 25rem;
     box-shadow: 0 0 10px aqua;
@@ -1201,6 +1222,9 @@ textarea {
 }
 
 /* ------------------------------ About Page --------------------------------------- */
+.abt{
+    display: inline-block;
+}
 .about-content {
     box-shadow: 0 0 10px aqua;
     font-size: 1.2rem;

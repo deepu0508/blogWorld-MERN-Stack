@@ -19,13 +19,15 @@ export default function UserProfile(props) {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
-                        'auth-token': sessionStorage.getItem("authtoken")
+                        'auth-token': sessionStorage.getItem("auth-token"),
+                        'bw_auth_token': sessionStorage.getItem("bw_auth_token"),
                     }
                 });
                 const data = await response.json();
+                // console.log(data)
                 setUserData({ name: data.user.name, username: data.user.username, email: data.user.email, time: data.user.time });
                 setUpdateData({ name: data.user.name });
-            })()
+            })();
         } catch (error) {
             console.error(error)
         }
@@ -37,11 +39,12 @@ export default function UserProfile(props) {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
+                    'bw_auth_token': sessionStorage.getItem("bw_auth_token"),
                 },
                 body: JSON.stringify({ username: userdata.username, password: Passwd })
             });
             const data = await response.json();
-            console.log(data)
+            // console.log(data)
             if (data.success) {
                 document.getElementById("error").style.display = "none";
                 setTemp({ passwd: Passwd });
@@ -71,7 +74,8 @@ export default function UserProfile(props) {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "auth-token": sessionStorage.getItem("authtoken")
+                    "auth-token": sessionStorage.getItem("auth-token"),
+                    'bw_auth_token': sessionStorage.getItem("bw_auth_token"),
                 },
                 body: JSON.stringify({ name: updateData.name || userdata.name, password: updateData.newPasswd || temp.passwd })
             });

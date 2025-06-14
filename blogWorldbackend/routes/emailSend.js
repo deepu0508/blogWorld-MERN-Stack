@@ -1,30 +1,56 @@
+const express = require("express");
+const { body, validationResult } = require("express-validator");
 // Import the Nodemailer library
-const nodemailer = require('nodemailer');
+const nodemailer = require("nodemailer");
+const dotenv = require("dotenv");
+const verifyUser = require("../middleware/verifyUser");
+dotenv.config();
 
-// Create a transporter object
-const transporter = nodemailer.createTransport({
-  host: 'live.smtp.mailtrap.io',
-  port: 587,
-  secure: false, // use SSL
-  auth: {
-    user: '1a2b3c4d5e6f7g',
-    pass: '1a2b3c4d5e6f7g',
+const router = express.Router();
+
+router.post(
+  "/sendmail",
+  [body("email", "Enter validate Email").isEmail()],verifyUser,
+  async (req, res) => {
+    let success = false;
+    try {
+      const EMAIL = "bratadipta1405@gmail.com";
+      const CFOTP = Math.floor(Math.random() * 8999998 + 1000000);
+
+      // Check all input's are correct or not
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        return res.status(400).json({ success, errors: errors.array() });
+      }
+
+      // Create a transporter object
+      const transpoter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          user: EMAIL,
+          pass: "kuiy dnvz wlov djwq",
+        },
+      });
+      const mailOptions = {
+        from: `OTP from blogWorld <${EMAIL}>`,
+        to: req.body.email,
+        subject: "One Time Password(OTP) for Verification",
+        html: `<h1>One Time Password(OTP)</h1>
+            One Time Password(OTP) from blogWorld for verfication : ${CFOTP}`,
+      };
+
+      transpoter.sendMail(mailOptions, (err, info) => {
+        if (err)
+          res.status(400).json({ success, errors: "OTP Send Failed!", info });
+        else {
+          success = true;
+          res.json({ success, info,otp:CFOTP });
+        }
+      });
+    } catch (error) {
+      res.status(400).json({ success, errors: "OTP Send Failed!" });
+    }
   }
-});
+);
 
-// Configure the mailoptions object
-const mailOptions = {
-  from: 'yourusername@email.com',
-  to: 'yourfriend@email.com',
-  subject: 'Sending Email using Node.js',
-  text: 'That was easy!'
-};
-
-// Send the email
-transporter.sendMail(mailOptions, function(error, info){
-  if (error) {
-    console.log('Error:', error);
-  } else {
-    console.log('Email sent:', info.response);
-  }
-});
+module.exports = router;

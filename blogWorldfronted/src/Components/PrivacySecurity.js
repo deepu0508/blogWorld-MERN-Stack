@@ -9,7 +9,7 @@ export default function PrivacySecurity() {
                     <div className="container df flex-column my-3 py-3 rounded about-content">
                         <h1 className="about-head">Privacy & Policy</h1>
                         <div className="container my-3 p-3">
-                            <div className="container-sm df flex-wrap-reverse p-0 about-part1">
+                            <div className="container-sm df flex-wrap p-0 about-part1">
                                 <div className="pp-img">
                                     <img src={pp} alt="" className="rounded" />
                                 </div>

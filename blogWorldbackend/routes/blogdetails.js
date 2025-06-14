@@ -4,9 +4,10 @@ const fetchUser = require("../middleware/fetchUser")
 const User = require("../models/user")
 const Blog = require("../models/blog")
 const BlogData = require("../models/blogInfo");
+const verifyUser = require("../middleware/verifyUser");
 
 // Router 1: Add new blog details using post method -: id -> blogId
-router.post("/addBlogInfo/:id", fetchUser, async (req, res) => {
+router.post("/addBlogInfo/:id", fetchUser, verifyUser, async (req, res) => {
     let success = false;
     try {
         const { TColor, TStyle, TFFamily, TSize, sTColor, sTStyle, sTFFamily, sTSize, DColor, DStyle, DFFamily, DSize } = req.body;
@@ -59,7 +60,7 @@ router.post("/infoFetch/:id", async (req, res) => {
 });
 
 // Router 3: This is update blog info -: id -> bloginfo id
-router.post("/updateBlogInfo/:id", fetchUser, async (req, res) => {
+router.post("/updateBlogInfo/:id", fetchUser, verifyUser, async (req, res) => {
     let success = false;
     try {
         const { TColor, TStyle, TFFamily, TSize, sTColor, sTStyle, sTFFamily, sTSize, DColor, DStyle, DFFamily, DSize } = req.body;
