@@ -105,6 +105,8 @@ export default function CreateBlog(props) {
   const formHandleSubmit = async (e) => {
     e.preventDefault();
     try {
+      console.log(frontImg.preview)
+      console.log(frontImg.data)
       // Check title, description and image are fill or not
       if (title && description && frontImg.preview && type) {
         setMess({

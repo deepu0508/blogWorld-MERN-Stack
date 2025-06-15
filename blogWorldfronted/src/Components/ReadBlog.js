@@ -275,7 +275,6 @@ export default function ReadBlog(props) {
         },
       });
       const data = await response.json();
-      // console.log(data);
       if (data.success) {
         navigate("/blogs");
         window.location.reload();
@@ -336,7 +335,7 @@ export default function ReadBlog(props) {
               </Link>
             </div>
           )}
-          <div className="container text-end author-part mx-3">
+          <div className="container text-end text-light author-part mx-3">
             <p className="m-0 author-name" id="auhtor-name">
               {author}
             </p>
@@ -493,7 +492,7 @@ export default function ReadBlog(props) {
                                     src={deleteImg}
                                     alt=""
                                     className="mx-2 cut"
-                                    onClick={() => removeComment(cmt._id)}
+                                    onClick={() => {removeComment(cmt._id);}}
                                   />
                                 )}
                                 <span className="badge text-bg-primary rounded-pill">

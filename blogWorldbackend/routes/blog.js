@@ -126,8 +126,10 @@ router.post("/fetchblogs", fetchUser,verifyUser, async (req, res) => {
 router.post("/fetchall",verifyUser, async (req, res) => {
   let success = false;
   try {
+    console.log(req.exp)
     const allBlogs = await Blog.find();
     success = true;
+    console.log(allBlogs)
     res.send({ success, allBlogs });
   } catch (error) {
     console.error(error);

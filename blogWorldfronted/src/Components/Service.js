@@ -28,12 +28,13 @@ export default function Service() {
               <div className="accordion-item text-light">
                 <h2 className="accordion-header">
                   <button className="accordion-button bg-primary text-light" type="button" id='accordion-btn1' onClick={()=>collapsed("accordion-btn1","about-content1")}>
-                    Accordion Item #1
+                    Blog Content Creating
                   </button>
                 </h2>
                 <div id="about-content1" className="accordion-collapse collapse show">
                   <div className="accordion-body">
-                    <strong>This is the first item's accordion body.</strong> It is shown by default, until
+                    <strong>This is the first item's accordion body.</strong> 
+                    It is shown by default, until
                     the collapse plugin adds the appropriate classes that we use to style each element.
                     These classes control the overall appearance, as well as the showing and hiding via CSS
                     transitions. You can modify any of this with custom CSS or overriding our default
@@ -45,7 +46,7 @@ export default function Service() {
               <div className="accordion-item text-light">
                 <h2 className="accordion-header">
                   <button className="accordion-button bg-warning text-light collapsed" type="button" id='accordion-btn2' onClick={()=>collapsed("accordion-btn2","about-content2")}>
-                    Accordion Item #2
+                    Show your Blog
                   </button>
                 </h2>
                 <div id="about-content2" className="accordion-collapse collapse">
@@ -62,7 +63,7 @@ export default function Service() {
               <div className="accordion-item text-light">
                 <h2 className="accordion-header">
                   <button className="accordion-button bg-danger text-light collapsed" type="button" onClick={()=>collapsed("accordion-btn3","about-content3")} id='accordion-btn3'>
-                    Accordion Item #3
+                    Read Others Blog
                   </button>
                 </h2>
                 <div id="about-content3" className="accordion-collapse collapse">

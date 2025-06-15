@@ -22,10 +22,14 @@ export default function BlogsPage(props) {
     try {
       getAllBlogs();
       setFilter("all");
+      // console.log(allblogs)
       const screenSize = window.screen.availHeight;
+      // console.log(screenSize)
+      // console.log(document.querySelectorAll(".blog-item"))
       document.querySelectorAll(".blog-item").forEach((e) => {
         const itemTop = e.getBoundingClientRect().top;
-        if (screenSize > itemTop) {
+        // console.log(itemTop)
+        if (screenSize >= itemTop) {
           itemPopOut(e);
         }
       });
@@ -98,27 +102,28 @@ export default function BlogsPage(props) {
                 allblogs.map((i) => {
                   return (
                     <>
-                      <div
+                      {allblogs.length === 1 &&(<div
                         className="blog-item animation"
                         id={`cards${a}`}
-                        key={a + 100}
+                        key={`c-${a + 100}`}
                       >
                         <BlogItem key={`${i._id + a}`} blog={i} count={a++} />
-                      </div>
-                      <div
+                      </div>)}
+
+                      {allblogs.length >= 2 && (<div
                         className="blog-item animation"
                         id={`cards${a}`}
-                        key={a + 100}
+                        key={`c-${a + 100}`}
                       >
                         <BlogItem key={`${i._id + a}`} blog={i} count={a++} />
-                      </div>
-                      <div
+                      </div>)}
+                      {allblogs.length >= 3 && (<div
                         className="blog-item animation"
                         id={`cards${a}`}
-                        key={a + 100}
+                        key={`c-${a + 100}`}
                       >
                         <BlogItem key={`${i._id + a}`} blog={i} count={a++} />
-                      </div>
+                      </div>)}
                     </>
                   );
                 })}

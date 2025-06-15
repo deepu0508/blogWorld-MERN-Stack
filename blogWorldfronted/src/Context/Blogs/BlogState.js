@@ -16,19 +16,19 @@ const BlogState = (props) => {
     fontSize: "30px",
     fontStyle: "normal",
     fontFamily: "sans-serif",
-    color: "black",
+    color: "white",
   });
   const [subTitleStyle, setSubTitleStyle] = useState({
     fontSize: "26px",
     fontStyle: "normal",
     fontFamily: "sans-serif",
-    color: "black",
+    color: "white",
   });
   const [descriptionStyle, setDescriptionStyle] = useState({
     fontSize: "22px",
     fontStyle: "normal",
     fontFamily: "sans-serif",
-    color: "black",
+    color: "white",
   });
 
   // Blog data store
@@ -46,7 +46,7 @@ const BlogState = (props) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          bw_auth_token: sessionStorage.getItem("bw_auth_token"),
+          "bw_auth_token": sessionStorage.getItem("bw_auth_token"),
         },
       });
 
@@ -63,7 +63,7 @@ const BlogState = (props) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "auth-token": sessionStorage.getItem("authtoken"),
+          "auth-token": sessionStorage.getItem("auth-token"),
           bw_auth_token: sessionStorage.getItem("bw_auth_token"),
         },
       });
@@ -84,8 +84,8 @@ const BlogState = (props) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "auth-token": sessionStorage.getItem("authtoken"),
-          bw_auth_token: sessionStorage.getItem("bw_auth_token"),
+          "auth-token": sessionStorage.getItem("auth-token"),
+          "bw_auth_token": sessionStorage.getItem("bw_auth_token"),
         },
       });
       const data = await response.json();
@@ -107,7 +107,7 @@ const BlogState = (props) => {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "auth-token": sessionStorage.getItem("authtoken"),
+            "auth-token": sessionStorage.getItem("auth-token"),
             bw_auth_token: sessionStorage.getItem("bw_auth_token"),
           },
           body: JSON.stringify({
@@ -128,7 +128,7 @@ const BlogState = (props) => {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
-              "auth-token": sessionStorage.getItem("authtoken"),
+              "auth-token": sessionStorage.getItem("auth-token"),
             },
             body: JSON.stringify({
               TColor: titleStyle.color,
@@ -147,7 +147,7 @@ const BlogState = (props) => {
           }
         );
         const info = await infoResponse.json();
-        // console.log(info.success);
+        console.log(info.success);
       }
     } catch (error) {
       console.error(error);
@@ -171,7 +171,7 @@ const BlogState = (props) => {
         const token = await auth_response.json();
         if (token.success)
           sessionStorage.setItem("bw_auth_token", token.bw_auth_token);
-        // else console.log(token.errors);
+        else console.log(token.errors);
       }
     } catch (error) {
       console.log(error);
